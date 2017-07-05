@@ -41,7 +41,7 @@ public func < (lhs: Path, rhs: Path) -> Bool {
 
 /// Appends a Path fragment to another Path to produce a new Path
 public func + (lhs: Path, rhs: Path) -> Path {
-    guard !lhs.path.ends(with: Path.separator), !rhs.path.starts(with: Path.separator) else {
+    guard !lhs.path.hasSuffix(Path.separator), !rhs.path.hasPrefix(Path.separator) else {
         return Path("\(lhs.path)\(rhs.path)")
     }
     return Path("\(lhs.path)\(Path.separator)\(rhs.path)")

@@ -1,3 +1,13 @@
-import PathKitTests
+//
+//  LinuxMain.swift
+//  Strings
+//
+//  Created by Jacob Williams on 7/3/17.
+//
 
-testPathKit()
+import XCTest
+@testable import PathKitTests
+
+XCTMain([
+    testCase(PathKitTests.allTests),
+])
