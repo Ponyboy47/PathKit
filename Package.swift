@@ -12,7 +12,7 @@ let package = Package(
       .package(url: "https://github.com/kylef/Spectre.git", .upToNextMinor(from: "0.8.0"))
   ],
   targets: [
-      .target(name: "PathKit", dependencies: [], path: "Sources"),
+      .target(name: "PathKit", dependencies: []),
       .testTarget(name: "PathKitTests", dependencies: ["PathKit", "Spectre"], path: "Tests/PathKitTests")
   ]
 )

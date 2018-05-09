@@ -1,6 +1,7 @@
 .build/
 Packages/
 *.sw[po]
+*.vimsession
 Package.pins
 Package.resolved
 .DS_Store
