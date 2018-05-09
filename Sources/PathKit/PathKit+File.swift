@@ -23,11 +23,7 @@ extension Path {
     public var isDirectory: Bool {
         var directory = ObjCBool(false)
         guard Path.fileManager.fileExists(atPath: normalized.path, isDirectory: &directory) else { return false }
-        #if os(Linux)
-            return directory
-        #else
-            return directory.boolValue
-        #endif
+        return directory.boolValue
     }
 
     /**
@@ -41,11 +37,7 @@ extension Path {
     public var isFile: Bool {
         var directory = ObjCBool(false)
         guard Path.fileManager.fileExists(atPath: normalized.path, isDirectory: &directory) else { return false }
-        #if os(Linux)
-            return !directory
-        #else
-            return !directory.boolValue
-        #endif
+        return !directory.boolValue
     }
 
     /**
@@ -55,7 +47,7 @@ extension Path {
        or its existence could not be determined
     */
     public var isSymlink: Bool {
-        guard let _ = try? Path.fileManager.destinationOfSymbolicLink(atPath: normalized.path) else { return false }
+        guard (try? Path.fileManager.destinationOfSymbolicLink(atPath: normalized.path)) != nil else { return false }
         return true
     }
 
